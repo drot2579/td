@@ -1,0 +1,97 @@
+const show = (...els) => els.forEach((el) => {
+    el.classList.contains("hide") && el.classList.remove("hide")
+})
+
+
+
+ // ask if asili
+if (asili) {
+    // asili
+    // ask if temiz
+    if (temiz) {
+        //temiz
+
+        // ask if kucukturOn
+        if (kucukturOn) {
+            //kucukturOn
+            // result: No Need
+        } else {
+            // NOT kucukturOn
+            // result: Td
+        }
+    } else {
+        // NOT temiz
+        // ask if kucukturBes
+        if (kucukturBes) {
+            //kucukturBes
+            // Result: No Need
+        } else {
+            // NOT kucukturBes
+            // Result: Td
+        }
+    }
+} else {
+    // NOT asili
+    // ask if temiz
+    if (temiz) {
+        // temiz
+        // Result: Td
+    } else {
+        // NOT temiz
+        // Result: Td + TIG
+    }
+}
+
+
+// ask if asili
+if (asili) {
+    // asili
+    // ask if temiz
+    if (temiz) {
+        //temiz
+
+        // ask if kucukturOn
+        if (kucukturOn) {
+            //kucukturOn
+            // result: No Need
+        } else {
+            // NOT kucukturOn
+            // result: Td
+        }
+    } else {
+        // NOT temiz
+        // ask if kucukturBes
+        if (kucukturBes) {
+            //kucukturBes
+            // Result: No Need
+        } else {
+            // NOT kucukturBes
+            // Result: Td
+        }
+    }
+} else {
+    // NOT asili
+    // ask if temiz
+    if (temiz) {
+        // temiz
+        // Result: Td
+    } else {
+        // NOT temiz
+        // Result: Td + TIG
+    }
+}      
+      
+      
+       <div class="yeniBes">
+            <h2>Son dozu beş yıl içinde?</h2>
+            <button value="true" class="evet">evet</button>
+            <button value="" class="hayır">hayır</button>
+            <button value="" class="bilinmiyor">bilinmiyor</button>
+        </div>
+
+        <div class="yeniOn">
+            <h2>Son dozu on yıl içinde?</h2>
+            <button value="true" class="evet">evet</button>
+            <button value="" class="hayır">hayır</button>
+            <button value="" class="bilinmiyor">bilinmiyor</button>
+        </div>
