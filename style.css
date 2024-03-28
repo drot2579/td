@@ -4,41 +4,108 @@
     box-sizing: border-box;
 }
 
-button, input {
-    font-size: 1rem;
-    padding: 0.25rem 0.5rem;
+
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+html {
+    text-align: center;
+    vertical-align: middle;
+    background-color: rgb(255, 218, 86);
 }
 
+body {
+    background-color: #f1f1f1;
+    height: 100vh;
+    color: #222;
+    /* background-color: yellowgreen; CHANGE */
+}
+
+body * {
+    /* border: 1px dotted red !important; */
+    /* background-color: yellow; CHANGE */
+}
+
+main {
+    height: 80%;
+    width: 100%;
+    max-width: 1200px;
+    margin:auto;
+    padding-top: 6%;
+    /* background-color: red; CHANGE */
+    /* margin-top: 2%; */
+}
+
+main > * {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+
+main > div {
+    height: 100%;
+    background-color: #f5f5f5;
+    box-shadow: 0 0 2px 2px #eee ;
+    padding: 3%
+    /* background-color: green; CHANGE */
+}
+main > div> p {
+    height: 40%;
+    width: 100%;
+    font-size: 1.5rem;
+    box-shadow: 0 0 2px 2px #ccc ;
+    align-content: center;
+    /* background-color: rgb(0, 117, 128); CHANGE */
+    /* padding: 20% 0; */
+}
+
+
 button {
+    width: 80%;
+    height: 14%;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 2px 2px #ddd ;
+    text-align: center;
+    vertical-align: middle;
     border: none;
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    transition: 1000ms;
+    color: #333;
+    /* flex-grow: 1; */
+    
+}
+
+button.yeni {
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    bottom: 10%;
+
+    margin:1rem auto;
+}
+
+div > button:hover {
+    box-shadow: 0 0 2px 2px #ff9335 ;
 }
 
 button:hover {
-    transform: scale(0.97);
     cursor: pointer;
 }
 
 button:active {
     transform: scale(0.9);
 }
-/* -------------------------------------------------------------------------- */
-/* -------------------------------------------------------------------------- */
-html {
-    background-color: hsl(0, 0%, 50%);
-}
 
-body {
+div.curtain {
     height: 100vh;
+    width: 100vw;
+    background-color: #fff;
 }
 
-body * {
-    /* border: 1px dotted red; */
-}
 
-nav, footer {}
-
-main {}
-
-.hide {
+/* .hide {
     display: none;
-}
+} */
+

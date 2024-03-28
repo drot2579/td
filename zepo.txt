@@ -1,3 +1,65 @@
+
+
+
+
+
+
+/* hide-show functions */
+const displayNone = (...els) => { els.forEach((el) => { el.style.display = "none"; }); };
+const displayOn = (...els) => { els.forEach((el) => { el.style.display = ""; }); };
+const hide = (...els) => { els.forEach((el) => { el.classList.add("hide"); }); };
+const show = (...els) => { els.forEach((el) => { el.classList.remove("hide"); }); };
+
+/* hide at start */
+displayOff(...document.querySelectorAll("main>*:not(.first)"));
+displayNone(...document.querySelectorAll("main>button,main>div"))
+displayOn(...document.querySelectorAll("main>button,main>div"))
+document.querySelectorAll("main>*").forEach((el) => {
+    fade.out.animate(el)
+})
+
+
+
+
+
+// Old hide-show functions
+const hide = (...els) => { els.forEach((el) => { el.classList.add("hide"); }); };
+const show = (...els) => { els.forEach((el) => { el.classList.remove("hide"); }); };
+
+
+var whiteRabbit = document.getElementById("rabbit");
+
+var rabbitDownKeyframes = new KeyframeEffect(
+    whiteRabbit, 
+    [
+      { transform: 'translateY(0%)' }, 
+      { transform: 'translateY(100%)' }
+    ], 
+    { duration: 3000, fill: 'forwards' }
+  );
+
+var rabbitDownAnimation = new Animation(rabbitDownKeyframes, document.timeline);
+
+// On tap or click,
+whiteRabbit.addEventListener("mousedown", downHeGoes, false);
+whiteRabbit.addEventListener("touchstart", downHeGoes, false);
+
+// Trigger a single-fire animation
+function downHeGoes(event) {
+
+  // Remove those event listeners
+  whiteRabbit.removeEventListener("mousedown", downHeGoes, false);
+  whiteRabbit.removeEventListener("touchstart", downHeGoes, false);  
+
+  // Play rabbit animation
+  rabbitDownAnimation.play();
+    
+}
+
+
+
+
+
 const show = (...els) => els.forEach((el) => {
     el.classList.contains("hide") && el.classList.remove("hide")
 })

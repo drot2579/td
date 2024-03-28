@@ -1,17 +1,9 @@
-let asili;
-let temiz;
-let kucukturOn;
-let kucukturBes;
-
-const watch = {
-    asili,
-    temiz,
-    kucukturOn,
-    kucukturBes,
+const vaka = {
+    asili: null,
+    temiz: null,
+    kucukturOn: null,
+    kucukturBes: null,
 };
-
-
-// document.body.classList.
 
 /* element references */
 const quesDiv = {
@@ -31,73 +23,97 @@ const btnEl = {
     yeni: document.querySelector(".yeni"),
 };
 
-/* hide-show functions */
-const hide = (...els) => {els.forEach((el) => {el.classList.add("hide");});};
-const show = (...els) => {els.forEach((el) => {el.classList.remove("hide");});};
+
+/* animations */
+
+const fade = {
+    out: {
+        frames: [{ display: "none", opacity: 0 }],
+        timing: { duration: 0, fill: "forwards" },
+        animate(...targets) {
+            return targets.forEach((target) => {
+                target.animate(this.frames, this.timing)
+            });
+        }
+    },
+    in: {
+        frames: [{ display: "flex", opacity: 1 }],
+        timing: { duration: 1000, fill: "forwards",delay:1000 },
+        animate(...targets) {
+            return targets.forEach((target) => {
+                target.animate(this.frames, this.timing)
+            });
+        }
+    }
+};
+const mainElements = document.querySelectorAll("main>*")
+
 
 
 /* Reset button */
-btnEl.yeni.addEventListener("click", (e) => {
-    asili = temiz = kucukturBes = kucukturOn = null;
-    hide(...document.querySelectorAll("main>*"))
-    show(quesDiv.asili)
+btnEl.yeni.addEventListener("click", () => {
+    vaka.asili = vaka.temiz = vaka.kucukturBes = vaka.kucukturOn = null;
+    mainElements.forEach((el) => {
+        fade.out.animate(el)
+    })
+    fade.in.animate(quesDiv.asili);
 });
 /* Asili button function */
 quesDiv.asili.querySelectorAll("button").forEach(btn => {
     btn.addEventListener("click", (e) => {
-        asili = e.target.value;
-        hide(quesDiv.asili);
-        show(quesDiv.temiz);
+        vaka.asili = e.target.value;
+        fade.out.animate(quesDiv.asili);
+        fade.in.animate(quesDiv.temiz);
     });
 });
-
 /* Temiz button function */
 quesDiv.temiz.querySelectorAll("button").forEach(btn => {
     btn.addEventListener("click", (e) => {
-        temiz = e.target.value;
-        hide(quesDiv.temiz);
-        if (asili && temiz) { show(quesDiv.kucukturOn); }
-        if (asili && !temiz) { show(quesDiv.kucukturBes); }
-        if (!asili && temiz) { show(resDiv.td, btnEl.yeni); }
-        if (!asili && !temiz) { show(resDiv.tig, btnEl.yeni); }
-        
+        vaka.temiz = e.target.value;
+        fade.out.animate(quesDiv.temiz);
+        if (vaka.asili && vaka.temiz) { fade.in.animate(quesDiv.kucukturOn); }
+        if (vaka.asili && !vaka.temiz) { fade.in.animate(quesDiv.kucukturBes); }
+        if (!vaka.asili && vaka.temiz) { fade.in.animate(resDiv.td, btnEl.yeni); }
+        if (!vaka.asili && !vaka.temiz) { fade.in.animate(resDiv.tig, btnEl.yeni); }
+
     });
 });
 
 /* KucukturOn button function */
 quesDiv.kucukturOn.querySelectorAll("button").forEach(btn => {
     btn.addEventListener("click", (e) => {
-        kucukturOn = e.target.value;
-        hide(quesDiv.kucukturOn);
-        if (kucukturOn) {
-            show(resDiv.ok, btnEl.yeni);
+        vaka.kucukturOn = e.target.value;
+        fade.out.animate(quesDiv.kucukturOn);
+        if (vaka.kucukturOn) {
+            fade.in.animate(resDiv.ok, btnEl.yeni);
         }
-        if (!kucukturOn) {
-            show(resDiv.td, btnEl.yeni);
+        if (!vaka.kucukturOn) {
+            fade.in.animate(resDiv.td, btnEl.yeni);
         }
     });
 });
 /* KucukturBes button function */
 quesDiv.kucukturBes.querySelectorAll("button").forEach(btn => {
     btn.addEventListener("click", (e) => {
-        kucukturBes = e.target.value;
-        hide(quesDiv.kucukturBes);
-        if (kucukturBes) {
-            show(resDiv.ok, btnEl.yeni);
+        vaka.kucukturBes = e.target.value;
+        fade.out.animate(quesDiv.kucukturBes);
+        if (vaka.kucukturBes) {
+            fade.in.animate(resDiv.ok, btnEl.yeni);
         }
-        if (!kucukturBes) {
-            show(resDiv.td, btnEl.yeni);
+        if (!vaka.kucukturBes) {
+            fade.in.animate(resDiv.td, btnEl.yeni);
         }
     });
+});
+
+
+/*      START     */
+// fast fadeout for all divs at the start, then slow fade
+mainElements.forEach((el) => {
+    fade.out.animate(el)
 })
-
-
-
-
-
-
-
-
+fade.out.timing.duration = 1000
+fade.in.animate(quesDiv.asili);
 
 
 
