@@ -11,6 +11,7 @@ html {
     text-align: center;
     vertical-align: middle;
     background-color: rgb(255, 218, 86);
+    overflow: hidden;
 }
 
 body {
@@ -26,7 +27,7 @@ body * {
 }
 
 main {
-    height: 80%;
+    height: 84%;
     width: 100%;
     max-width: 1200px;
     margin:auto;
@@ -47,25 +48,34 @@ main > div {
     height: 100%;
     background-color: #f5f5f5;
     box-shadow: 0 0 2px 2px #eee ;
-    padding: 3%
+    /* padding: 3% */
     /* background-color: green; CHANGE */
 }
 main > div> p {
+    box-shadow: 0 0 2px 2px #999 ;
+    box-shadow: 0 0 2px 2px #ccc ;
     height: 40%;
     width: 100%;
     font-size: 1.5rem;
-    box-shadow: 0 0 2px 2px #ccc ;
     align-content: center;
+    transition: 1s;
     /* background-color: rgb(0, 117, 128); CHANGE */
     /* padding: 20% 0; */
 }
 
 
+main > div > p:active {
+    box-shadow: 0 0 6px 6px #aaa ;
+    text-shadow: 4px 5px 4px #999;
+    
+}
+
 button {
+    box-shadow: 0 0 2px 2px #eee ;
+    box-shadow: 0 0 2px 2px #ddd ;
     width: 80%;
     height: 14%;
     background-color: #f9f9f9;
-    box-shadow: 0 0 2px 2px #ddd ;
     text-align: center;
     vertical-align: middle;
     border: none;
